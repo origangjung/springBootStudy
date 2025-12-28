@@ -1,0 +1,12 @@
+spring:
+  jpa:
+    # ⭐️ 핵심: 테이블 생성(Hibernate) 후에 data.sql을 실행하라는 설정
+    defer-datasource-initialization: true
+
+    # (참고) 보통 같이 쓰는 설정들
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: create
