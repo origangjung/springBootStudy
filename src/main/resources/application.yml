@@ -1,12 +1,19 @@
 spring:
   jpa:
-    # ⭐️ 핵심: 테이블 생성(Hibernate) 후에 data.sql을 실행하라는 설정
     defer-datasource-initialization: true
-
-    # (참고) 보통 같이 쓰는 설정들
     show-sql: true
     properties:
       hibernate:
         format_sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
+
+  datasource: # jpa와 같은 라인으로 한 칸 앞으로 당겨야 합니다.
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  h2: # jpa와 같은 라인으로 한 칸 앞으로 당겨야 합니다.
+    console:
+      enabled: true # enable이 아니라 enabled입니다! ⭐
